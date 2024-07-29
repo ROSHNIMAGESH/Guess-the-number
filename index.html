@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <title>GUESS THE NUMBER</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-color: powderblue;
+                font-family: cursive;
+                margin: 0;
+            }
+            h1 {
+                color: palevioletred;
+            }
+            h3 {
+                color: darkorchid;
+            }
+            input {
+                border: 2px solid aqua;
+                padding: 10px;
+                font-size: 16px;
+                margin: 10px 0;
+                border-radius: 5px;
+                outline: none;
+                transition: border-color 0.3s;
+            }
+            input:focus {
+                border-color: #00ced1;
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                color: whitesmoke;
+                background-color: orchid;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button:hover {
+                background-color: darkmagenta;
+            }
+            #result {
+                margin-top: 20px;
+                font-size: 18px;
+                font-weight: bold;
+            }
+            #attempts {
+                margin-top: 10px;
+                font-size: 16px;
+                color: darkviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>GUESS THE NUMBER</h1>
+        <h3>ENTER A NUMBER BETWEEN 1 AND 10 </h3>
+        <input id="number">
+        <button onclick="check()">Check</button>
+        <p id="attempts">Number of attempts : 0</p>
+        <p id="result"></p>
+    </body>
+    <script>
+        var number = document.getElementById("number")
+        var result = document.getElementById("result")
+        var attempts = document.getElementById("attempts")
+        var ran = Math.floor(Math.random()*10)+1
+        var a = 0
+        function check()
+        {
+            var num = number.value
+            if(num==ran){
+                result.textContent="You are correct! You wow!"
+                a=a+1
+                attempts.textContent="Number of attempts : "+a
+                number.style.borderColor="green"
+                result.style.color = "green"
+            }
+            else{
+                a=a+1
+                attempts.textContent="Number of attempts : "+a
+                result.textContent="You are wrong!"
+                number.style.borderColor="red"
+                result.style.color = "red"
+            }
+        }
+    </script>
+</html>
